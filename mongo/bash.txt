@@ -1,0 +1,20 @@
+
+docker run -it --name bubuntu -d ubuntu:24.04
+docker exec -it bubuntu bash
+
+ls
+ ls home/
+ ls boot/
+ ls etc/
+ ls sbin/
+ ls usr/
+ ls opt/
+ ls tmp/  (temp -временные файлы)
+ cd usr
+ cd include
+ cd ../../ - вернуться в корень
+ pwd
+ echo
+ echo "Hello world!" > hello.txt - записать и присвоить файлы
+ cat hello.txt - прочитать
+ 

@@ -1,0 +1,17 @@
+В контейнере с ubuntu, в директории tmp, создать файл homework2.txt 
+в которое поместить несколько строк текста. 
+Потом вывести содержимое файла в консоль.
+
+docker exec -it bubuntu bash
+cd tmp
+
+touch homework2.txt
+
+printf "She walks in beauty, like the night\n
+Of cloudless climes and starry skies;\n
+And all that's best of dark and bright\n
+Meet in her aspect and her eyes:\n
+Thus mellowed to that tender light\n
+Which heaven to gaudy day denies.\n" >> homework2.txt
+
+cat homework2.txt

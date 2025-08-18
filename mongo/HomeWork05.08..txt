@@ -1,0 +1,42 @@
+Задача 2
+
+Найти всех студентов, у которых есть хотя бы один квиз (type: "quiz") 
+с оценкой выше 10. (Подсказка: Используй $elemMatch.)
+
+db.students.find({scores: {$elemMatch: {type:'quiz', score:{$gt:10}}}})
+db.students.find({scores: {$elemMatch: {type:'quiz', score:{$gt:10}}}}).size()
+
+Задача 3
+
+Получить только имена студентов (name), у которых есть хотя бы одна оценка 
+за экзамен (type: "exam") ниже 5. 
+(Подсказка: Используй $elemMatch и проекцию { name: 1 }.)
+
+db.students.find({scores: {$elemMatch: {type:'exam', score:{$lt:5}}}},{name:1, _id:0})
+
+Задача 4
+
+Найти студентов, у которых есть как минимум одна оценка 
+за домашнее задание (type: "homework") выше 30. (Подсказка: Используй $elemMatch.)
+
+db.students.find({scores: {$elemMatch: {type:'homework', score:{$gt:30}}}})
+db.students.find({scores: {$elemMatch: {type:'homework', score:{$gt:30}}}}).size()
+
+Задача 5
+
+Получить только имена (name) и оценки за квизы (type: "quiz") для всех студентов. 
+(Подсказка: Используй проекцию { name: 1, "scores": { $elemMatch: { type: "quiz" } } })
+
+db.students.find({'scores.type':'quiz'},{name:1,_id:0,scores: { $elemMatch: { type: 'quiz'}}})
+
+Задача 6
+
+Найти всех студентов, у которых есть оценки за экзамены (type: "exam") 
+или квизы (type: "quiz"), и вернуть их имена и оценки. 
+(Подсказка: Используй $elemMatch и проекцию { name: 1, scores: 1 }.)
+
+db.students.find({scores: {$elemMatch:{type:{ $in: ['exam','quiz']}}}})
+db.students.find({'scores.type': {$in: ['quiz','exam']}},{name:1,_id:0, scores:1})
+db.students.find({'scores.type': {$in: ['quiz','exam']}},{name:1,_id:0, scores: {$elemMatch:{type:{ $in: ['exam','quiz']}}}})
+
+

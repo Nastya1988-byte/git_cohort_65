@@ -16,5 +16,5 @@ ls
  pwd
  echo
  echo "Hello world!" > hello.txt - записать и присвоить файлы
- cat hello.txt - прочитать
+ cat hello.txt
  

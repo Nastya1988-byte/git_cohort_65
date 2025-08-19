@@ -18,3 +18,18 @@ git push -u origin master
 git pull
 git config list
 git config --global user.email "Your email"
+
+
+
+git log --oneline --graph --all
+git checkout -b conflict
+mkdir conflict-demo
+cd conflict-demo
+echo "Hello world" > notes.txt
+git checkout -b conflict2
+
+mkdir conflict-demo
+cd conflict-demo
+echo "This is conflict line" > notes.txt
+git show HEAD:git.txt
+git show  dbc759a 
